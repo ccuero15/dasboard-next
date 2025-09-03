@@ -1,6 +1,6 @@
 import React from 'react'
-import { SimplePokemon } from '@/app/pokemons'
 import PokemonCard from './PokemonCard'
+import { SimplePokemon } from '../interfaces/simple-pokemon'
 //import Image from 'next/image'
 
 interface Props {
