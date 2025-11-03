@@ -23,6 +23,12 @@ const menuItems = [
         title: 'Pokemons',
         subTitle: 'Generate Pokemons Static'
     },
+    {
+        path: '/dashboard/bank',
+        icon: <IoFootball size={40} />,
+        title: 'BCV',
+        subTitle: 'banco central de venezuela'
+    },
 ]
 
 export const Sidebar = () => {
