@@ -2,7 +2,8 @@
 
 import React, { useState } from 'react'
 
-export default function Page() {
+
+export default function MainBankPage() {
     const [ url ] = useState('https://www.bcv.org.ve/');
     const [ result, setResult ] = useState<object>();
     const [ cargando, setCargando ] = useState(false);

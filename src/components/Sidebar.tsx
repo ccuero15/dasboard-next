@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import { IoBrowsersOutline, IoCalculator, IoFootball, IoLogoReact } from 'react-icons/io5'
+import { IoBrowsersOutline, IoCalculator, IoFootball, IoHeartOutline, IoLogoReact } from 'react-icons/io5'
 import { SidebarMenuItem } from './SidebarMenuItem'
 
 
@@ -24,11 +24,18 @@ const menuItems = [
         subTitle: 'Generate Pokemons Static'
     },
     {
+        path: '/dashboard/favorites',
+        icon: <IoHeartOutline size={40} />,
+        title: 'Favoritos',
+        subTitle: 'Pokemones Favoritos'
+    },
+    {
         path: '/dashboard/bank',
         icon: <IoFootball size={40} />,
         title: 'BCV',
         subTitle: 'banco central de venezuela'
     },
+
 ]
 
 export const Sidebar = () => {
@@ -64,11 +71,11 @@ export const Sidebar = () => {
             <div id="nav" className="w-full px-6">
 
                 {
-                    menuItems.map((item,index) => (
-                        <SidebarMenuItem 
+                    menuItems.map((item, index) => (
+                        <SidebarMenuItem
                             key={index}
                             {...item}
-                            />
+                        />
 
                     ))
                 }
