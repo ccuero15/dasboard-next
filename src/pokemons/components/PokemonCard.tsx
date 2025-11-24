@@ -1,8 +1,11 @@
+'use client'
 import Link from 'next/link'
 import React from 'react'
 import { SimplePokemon } from '../interfaces/simple-pokemon'
 import Image from 'next/image'
-import { IoHeartOutline } from 'react-icons/io5'
+import { IoHeart, IoHeartOutline } from 'react-icons/io5'
+import { useAppDispatch, useAppSelector } from '@/store'
+import { toggleFavorite } from '@/store/pokemons/pokemons'
 
 interface Props {
     pokemon: SimplePokemon
@@ -12,6 +15,16 @@ interface Props {
 const PokemonCard = ({ pokemon }: Props) => {
 
     const { id, name } = pokemon;
+
+    const isFavorite = useAppSelector(state => !!state.pokemons[ id ])  /*valor bool*/
+
+    const dispatch = useAppDispatch();
+
+    const onToggle = () => {
+
+        dispatch(toggleFavorite(pokemon))
+        console.log('click')
+    }
 
     return (
 
@@ -44,20 +57,25 @@ const PokemonCard = ({ pokemon }: Props) => {
                     </div>
                 </div>
                 <div className="border-b">
-                    <Link href="/dashboard/main" className="px-4 py-2 hover:bg-gray-100 flex items-center space-x-1">
+                    <div onClick={onToggle}
+                        className="px-4 py-2 hover:bg-gray-100 flex items-center space-x-1 cursor-pointer">
 
                         <div className="text-red-600">
-                           <IoHeartOutline size={20} />
+                            {
+                                isFavorite
+                                    ? (<IoHeart size={20} />)
+                                    : (<IoHeartOutline size={20} />)
+                            }
                         </div>
                         <div className="pl-3">
                             <p className="text-sm font-medium text-gray-800 leading-none">
-                                Add to Favorites
+
+                                {isFavorite ? ' In favorites' : 'Not in favorites'}
                             </p>
-                            <p className="text-xs text-gray-500">View your campaigns</p>
+                            <p className="text-xs text-gray-500">Click to change</p>
                         </div>
 
-                    </Link>
-                   
+                    </div>
                 </div>
             </div>
         </div>
