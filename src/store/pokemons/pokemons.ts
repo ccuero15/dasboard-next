@@ -11,8 +11,8 @@ interface PokemonsState {
 
 const initialState: PokemonsState = {
     // Initial state properties
-    '1': { id: '1', name: 'bulbasaur' },
-    '4': { id: '4', name: 'bulbasaur' },
+/*     '1': { id: '1', name: 'bulbasaur' },
+    '4': { id: '4', name: 'bulbasaur' }, */
 }
 
 const pokemonsSlice = createSlice({
@@ -26,10 +26,13 @@ const pokemonsSlice = createSlice({
 
             if (!!state[ id ]) { /* si existe lo elimino */
                 delete state[ id ];
-                return;
+                //return;
+            }else{
+                /* si no existe lo agrego al state */
+                state[ id ] = pokemon;
             }
-            /* si no existe lo agrego al state */
-            state[ id ] = pokemon;
+            //TODO no se debe hacer esto en el reducer
+            localStorage.setItem('favorites', JSON.stringify(state))
         }
     }
 });

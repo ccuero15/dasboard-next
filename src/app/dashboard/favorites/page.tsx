@@ -1,8 +1,9 @@
 
 //import Image from "next/image";
 
-import FavoritePokemons from "@/pokemons/components/FavoritePokemons";
+import { FavoritePokemons } from "@/pokemons/components/FavoritePokemons";
 //import PokemonGrid from "@/pokemons/components/PokemonGrid";
+
 
 
 
@@ -15,3 +16,4 @@ export default async function PokemonsPage() {
         </div>
     );
 }
+
